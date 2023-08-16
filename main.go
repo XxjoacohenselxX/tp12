@@ -98,14 +98,20 @@ func createRecord(source string, measurement float64, event string) {
 }
 
 func readRecords() {
-	//TODO Recorrer la coleccion records, acceder a
-	//todos los campos de cada record
-	// (PKID, Timestamp, Source, etc) 
-	//e imprimirlos por consola
-	for ???? range ???? {
-		//fmt.Printf("ID: %d\n", record.PKID)
+	fmt.Println("Registros:")
+	if len(records) == 0 {
+		fmt.Println("No hay registros.")
+		return
+	}
+	for _, record := range records {
+		fmt.Printf("ID: %d\n", record.PKID)
+		fmt.Printf("Timestamp: %s\n", record.Timestamp.Format(time.RFC3339))
+		fmt.Printf("Source: %s\n", record.Source)
+		fmt.Printf("Measurement: %f\n", record.Measurement)
+		fmt.Printf("Event: %s\n\n", record.Event)
 	}
 }
+
 
 func readAllRecords() {
 	fmt.Println("Registros:")
